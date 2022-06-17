@@ -1,20 +1,20 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  for(var i=0; i<array.length; i++){
+    for(var j=i+1; j<array.length; j++){
+      if(array[i] + array[j] === target){
+        return true;
+      }   
+      
+    }
+  }
+  return false  
+  
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
 
-/* 
-  Add your pseudocode here
-*/
 
-/*
-  Add written explanation of your solution here
-*/
 
-// You can run `node index.js` to view these console logs
 if (require.main === module) {
   // add your own custom tests in here
   console.log("Expecting: true");
@@ -29,6 +29,20 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", hasTargetSum([1, 2, 5], 4));
+
+    // Negative numbers?
+    console.log("Expecting: true");
+    console.log("=>", hasTargetSum([-7, 10, 4, 8], 3));
+  
+    console.log("");
+    // Multiple pairs?
+    console.log("Expecting: true");
+    console.log("=>", hasTargetSum([1, 2, 3, 4], 5));
+  
+    console.log("");
+    // Single numbers?
+    console.log("Expecting: false");
+    console.log("=>", hasTargetSum([4], 4));
 }
 
 module.exports = hasTargetSum;
